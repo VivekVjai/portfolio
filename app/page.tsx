@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
 import SocialSidebar from "@/components/SocialSidebar";
+import StrengthsSection from "@/components/StrengthsSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
 
       <main className="relative z-10">
         <HeroSection />
+        <StrengthsSection />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />

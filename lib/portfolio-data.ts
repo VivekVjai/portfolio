@@ -12,21 +12,38 @@ export const profile = {
 };
 
 export const hero = {
-  subtitle: "Backend Developer & Product Contributor",
-  roles: [
-    "Backend Developer",
-    "Product Owner",
-    "Full-Stack Engineer",
-    "Python & Django Developer"
-  ],
+  subtitle: "Backend Developer & Product Owner",
   bio:
-    "Stockholm-based backend developer building production Django REST APIs, PostgreSQL systems, Stripe payment flows, and Azure deployments. I bring product ownership instincts from a Swedish food-tech startup and five years of sales and market experience."
+    "I build Django backends the way a product owner thinks - checkout flows, payment logic, and cloud deployments, shaped by 5 years of understanding what actually drives a business. Currently shipping the full stack at a Swedish food-tech startup, solo."
 };
 
 export const aboutParagraphs = [
-  "I am a backend developer based in Stockholm, Sweden, open to opportunities across the country. My core stack is Python, Django, Django REST Framework, PostgreSQL, Redis, Stripe, Docker, Azure App Service, GitHub Actions, pytest, Linux, JWT, CORS, and Gunicorn.",
-  "At PeckiiLess AB, I work as the sole backend developer and product contributor for a live Swedish food-tech platform. I helped design the full user journey in Figma, defined the checkout flow from cart to date and slot selection to payment, and built the backend from scratch with deployment on Azure.",
+  "I am a backend developer based in Stockholm, Sweden, open to opportunities across the country. My core stack is Python, Django, Django REST Framework, PostgreSQL, Redis, Stripe, Docker, Azure App Service, GitHub Actions, pytest, JWT, CORS, Gunicorn, React/Vite integrations, RAG workflows, WhatsApp Business API, and Meta Graph API.",
+  "At PeckiiLess AB, I am the sole backend developer and product contributor for a live Swedish food-tech platform. I shaped the user journey in Figma, defined checkout from cart to date and slot selection to payment, and built the backend from scratch with Azure deployment workflows. I also evaluated Klarna's transaction cost against our current order volume and recommended holding off for now, keeping Stripe's card and Swish integration as the leaner near-term path.",
+  "Alongside that, I am building AI and API-integration projects for Tellus AB, a Swedish startup: a WhatsApp-based RAG assistant for customer conversations and appointment booking, plus a planned Meta ads dashboard integration with an AI campaign-suggestion layer.",
+  "I enjoy problem solving, taking ownership of products end to end, and learning by building. Having owned major product areas independently, I am now looking to join a strong engineering team - not to be handed easier work, but to be pushed. I want engineers around me who will question my architecture, so the next backend I build is better than the last one.",
   "Before tech, I spent five years in pharma sales and marketing in India. That background shapes how I build: I think about users, margins, operational constraints, stakeholder communication, and the business trade-offs behind engineering decisions."
+];
+
+export const strengths = [
+  {
+    title: "Ownership",
+    description:
+      "Sole backend developer and product contributor on a live commercial platform, from Figma flows to production backend decisions.",
+    icon: "briefcase"
+  },
+  {
+    title: "Judgment",
+    description:
+      "Analysed Klarna's margin cost against our average order value and recommended deferring it - card and Swish cover current needs at lower cost.",
+    icon: "scale"
+  },
+  {
+    title: "Adaptability",
+    description:
+      "Rebuilt from five years in pharma sales into backend engineering while shipping production code and learning fast.",
+    icon: "refresh"
+  }
 ];
 
 export const technologies = [
@@ -54,6 +71,12 @@ export const technologies = [
   "Bash",
   "SQL",
   "JavaScript",
+  "AI Agents",
+  "RAG",
+  "WhatsApp Business API",
+  "Meta Graph API",
+  "API Integration",
+  "Hetzner VPS",
   "HTML",
   "CSS",
   "Git",
@@ -70,10 +93,18 @@ export const experiences = [
     role: "Backend Developer & Product Contributor",
     location: "Stockholm County, Sweden",
     dateRange: "November 2025 - Present",
-    duration: "7 Months",
+    duration: "8 months",
     description: [
-      "Sole backend developer for a Swedish food-tech platform covering daily food ordering, catering, and event services. I architected and built the Django REST API from scratch, including PostgreSQL schema design, domain logic, JWT authentication, CORS for a React/Vite frontend, Redis caching, and Stripe payments with idempotency handling.",
-      "Contributed product ownership across the platform: designed 20+ responsive Figma screens, defined the checkout flow from cart to date and slot selection to payment, implemented a two-day advance booking rule, evaluated Klarna against AOV margin impact, selected Stripe to unify card and Swish payments, and worked in Agile/Scrum rituals including sprint planning, standups, and retrospectives."
+      "Sole backend developer for a Swedish food-tech platform covering daily food ordering, catering, and event services."
+    ],
+    bullets: [
+      "Architected and built the Django REST API from scratch - PostgreSQL schema, cart and checkout logic, delivery date/slot scheduling, JWT authentication, CORS for a React/Vite frontend, Redis caching, and consistent DRF JSON error responses.",
+      "Implemented Stripe card and Swish payment flows with idempotency handling to prevent duplicate charges.",
+      "Deployed a Dockerized Gunicorn runtime on Azure App Service with GitHub Actions CI/CD and environment-based configuration; planned backend test coverage with pytest.",
+      "Designed 20+ responsive Figma screens and defined the full checkout journey.",
+      "Set a two-day advance booking rule based on operational constraints.",
+      "Evaluated Klarna against AOV margin impact and recommended deferring it in favor of the existing Stripe card/Swish flow - informing my manager's payment roadmap with a cost-based analysis, not just a technical opinion.",
+      "Worked in Agile/Scrum rituals: sprint planning, standups, retrospectives."
     ]
   },
   {
@@ -84,8 +115,8 @@ export const experiences = [
     dateRange: "August 2024 - March 2025",
     duration: "8 Months",
     description: [
-      "Built full-stack web applications using Python, Django, HTML, CSS, and JavaScript across more than three projects during the internship period.",
-      "Developed RESTful APIs with Django REST Framework, implemented CRUD operations, JWT authentication, user session management, database queries, frontend integration, and version control workflows with Git and GitHub."
+      "Completed a Python/Django full-stack internship, building CRUD applications and REST APIs with Django, Django REST Framework, HTML, CSS, JavaScript, templates, database queries, and Git/GitHub workflows.",
+      "Practiced authentication, session handling, serializer-based API development, frontend integration, and project structuring across healthcare, learning, CRM, and API-focused projects."
     ]
   },
   {
@@ -119,7 +150,7 @@ export const featuredProjects = [
     title: "Gandom Backend API",
     label: "Featured Project",
     description:
-      "Production Django REST API for the Gandom food-tech platform, covering cart management, delivery scheduling, and product cataloging for up to 100 daily orders. It includes Stripe integration for card and Swish payments, idempotency keys to prevent duplicate charges, JWT authentication, CORS for React/Vite frontends, and consistent DRF JSON error responses.",
+      "Production Django REST API for the Gandom food-tech platform, covering product cataloging, cart management, checkout, delivery date and slot scheduling, and payment preparation for daily food ordering, catering, and event services. It includes Stripe card and Swish flows, idempotency handling, JWT authentication, CORS for a React/Vite frontend, Redis caching, and consistent DRF JSON error responses.",
     tech: [
       "Django",
       "DRF",
@@ -132,7 +163,6 @@ export const featuredProjects = [
       "GitHub Actions",
       "pytest"
     ],
-    href: "https://github.com/VivekVjai",
     visual: "checkout"
   },
   {
@@ -148,52 +178,32 @@ export const featuredProjects = [
 
 export const otherProjects = [
   {
-    title: "E-Learning Platform",
+    title: "Tellus AI WhatsApp Agent",
     description:
-      "Full-stack learning platform project from my Python/Django project set, built while strengthening CRUD flows, authentication, and Django application structure.",
-    tech: ["Python", "Django", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/VivekVjai/e-learning-app",
-    preview: "https://github.com/VivekVjai/e-learning-app"
+      "AI WhatsApp assistant for Tellus AB, a Swedish startup. The agent uses RAG over company resource data so customers can ask natural questions, book appointments through chat, and get escalated to a human when support is needed. Planned deployment on a Hetzner VPS.",
+    tech: ["WhatsApp API", "RAG", "AI Agents", "Python", "Hetzner VPS"],
+    status: "In Progress"
   },
   {
     title: "EasyMed App",
     description:
-      "Healthcare-oriented application project focused on applying Django fundamentals, user flows, and practical full-stack development patterns.",
-    tech: ["Python", "Django", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/VivekVjai/myproject-easymed",
-    preview: "https://github.com/VivekVjai/myproject-easymed"
+      "Django healthcare marketplace connecting medicine dealers and customers. Dealers can manage medicine listings, prices, and discounts, while customers can browse shops and compare available offers through a simple Bootstrap UI.",
+    tech: ["Python", "Django", "Django Templates", "Bootstrap", "SQLite"],
+    github: "https://github.com/VivekVjai/myproject-easymed"
   },
   {
-    title: "Stripe Payment Architecture",
+    title: "E-Learning App",
     description:
-      "Payment integration strategy for a food-tech checkout, selecting Stripe to unify card and Swish payments while deferring Klarna based on margin impact and growth stage.",
-    tech: ["Stripe", "Swish", "Product Strategy", "AOV Analysis"],
-    github: "https://github.com/VivekVjai",
-    preview: "https://github.com/VivekVjai"
+      "Django learning-platform project from my training portfolio, used to practice app structure, routing, templates, CRUD-style flows, authentication thinking, and the foundations of a course or instructor-led learning product.",
+    tech: ["Python", "Django", "Templates", "HTML", "CSS"],
+    github: "https://github.com/VivekVjai/e-learning-app"
   },
   {
-    title: "Automated Backend Test Suite",
+    title: "Meta API Integration",
     description:
-      "pytest-based backend test suite covering API endpoints, authentication flows, and payment logic, with mocked Stripe and Redis dependencies and a 75%+ coverage target.",
-    tech: ["pytest", "pytest-django", "DRF APIClient", "Mocking"],
-    github: "https://github.com/VivekVjai",
-    preview: "https://github.com/VivekVjai"
-  },
-  {
-    title: "Azure Docker Deployment Pipeline",
-    description:
-      "CI/CD workflow deploying a Dockerized Django backend to Azure App Service, building images through Docker Hub, running pytest, and managing runtime with Gunicorn on Linux.",
-    tech: ["Azure App Service", "Docker", "Docker Hub", "GitHub Actions", "Gunicorn"],
-    github: "https://github.com/VivekVjai",
-    preview: "https://github.com/VivekVjai"
-  },
-  {
-    title: "Food-Tech Booking Journey",
-    description:
-      "Responsive product journey for daily food ordering, catering, and event services, including cart, date and slot selection, payment, and operational advance-booking constraints.",
-    tech: ["Figma", "Checkout Flow", "Agile/Scrum", "Product Ownership"],
-    github: "https://github.com/VivekVjai",
-    preview: "https://github.com/VivekVjai"
+      "Planned Tellus AB dashboard integration for Meta ad reporting. Company officials will be able to view customer ad details through their dashboard, then use an AI layer to generate suggested ad campaign ideas from current ad performance reports. Planned deployment on Azure.",
+    tech: ["Meta Graph API", "Ad Reporting", "AI Suggestions", "Dashboard API", "Azure"],
+    status: "Coming Soon"
   }
 ];
 

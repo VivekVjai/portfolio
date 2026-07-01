@@ -8,6 +8,10 @@ import { experiences } from "@/lib/portfolio-data";
 export default function ExperienceSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeExperience = experiences[activeIndex];
+  const bullets =
+    "bullets" in activeExperience && Array.isArray(activeExperience.bullets)
+      ? activeExperience.bullets
+      : [];
 
   return (
     <section id="experience" className="portfolio-section">
@@ -72,6 +76,16 @@ export default function ExperienceSection() {
                 {activeExperience.description.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
+                {bullets.length > 0 ? (
+                  <ul className="space-y-3 pt-1">
+                    {bullets.map((bullet) => (
+                      <li key={bullet} className="flex gap-3 leading-7">
+                        <span className="mt-[0.68rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </motion.article>
           </AnimatePresence>

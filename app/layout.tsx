@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vivek Vijai | Portfolio",
   description:
-    "Backend developer and product contributor in Sweden working with Python, Django, PostgreSQL, Stripe, Azure, Docker, and CI/CD."
+    "Stockholm backend developer building Python/Django REST APIs, PostgreSQL systems, payments, Azure deployments, WhatsApp AI agents, RAG workflows, and Meta API integrations."
 };
 
 export default function RootLayout({

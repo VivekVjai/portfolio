@@ -59,21 +59,24 @@ export default function ProjectsSection() {
           <h3 className="mb-10 text-2xl font-semibold text-[var(--foreground)]">Featured Projects</h3>
           <div className="space-y-20">
             {featuredProjects.map((project, index) => {
+              const href = "href" in project ? project.href : undefined;
               const visual = <ProjectVisual type={project.visual} title={project.title} />;
               const copy = (
                 <div className="flex flex-col justify-center">
                   <p className="font-mono text-sm text-[var(--accent)]">{project.label}</p>
                   <div className="mt-3 flex items-center gap-3">
                     <h4 className="text-3xl font-semibold text-[var(--foreground)]">{project.title}</h4>
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.title} external link`}
-                      className="text-[var(--muted)] transition hover:text-[var(--accent)]"
-                    >
-                      <ExternalLink className="h-5 w-5" strokeWidth={1.8} />
-                    </a>
+                    {href ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.title} external link`}
+                        className="text-[var(--muted)] transition hover:text-[var(--accent)]"
+                      >
+                        <ExternalLink className="h-5 w-5" strokeWidth={1.8} />
+                      </a>
+                    ) : null}
                   </div>
                   <div className="mt-5 border border-[var(--card-border)] bg-[var(--card-bg)] p-6 shadow-sm backdrop-blur-md rounded-2xl">
                     <p className="leading-8 text-[var(--muted)]">{project.description}</p>
@@ -115,47 +118,75 @@ export default function ProjectsSection() {
             Other Notable Projects
           </h3>
           <div className="grid gap-5 md:grid-cols-2">
-            {otherProjects.map((project) => (
-              <article
-                key={project.title}
-                className="border border-[var(--card-border)] bg-[var(--card-bg)] p-6 backdrop-blur-md transition hover:-translate-y-1 hover:border-[var(--accent)] rounded-2xl"
-              >
-                <div className="mb-6 flex items-center justify-between">
-                  <Folder className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.6} />
-                  <div className="flex items-center gap-4 text-[var(--muted)]">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.title} GitHub`}
-                      className="transition hover:text-[var(--accent)]"
-                    >
-                      <FaGithub className="h-5 w-5" />
-                    </a>
-                    <a
-                      href={project.preview}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.title} preview`}
-                      className="transition hover:text-[var(--accent)]"
-                    >
-                      <ExternalLink className="h-5 w-5" strokeWidth={1.8} />
-                    </a>
+            {otherProjects.map((project) => {
+              const github =
+                "github" in project && typeof project.github === "string"
+                  ? project.github
+                  : undefined;
+              const preview =
+                "preview" in project && typeof project.preview === "string"
+                  ? project.preview
+                  : undefined;
+              const status =
+                "status" in project && typeof project.status === "string"
+                  ? project.status
+                  : undefined;
+
+              return (
+                <article
+                  key={project.title}
+                  className="border border-[var(--card-border)] bg-[var(--card-bg)] p-6 backdrop-blur-md transition hover:-translate-y-1 hover:border-[var(--accent)] rounded-2xl"
+                >
+                  <div className="mb-6 flex items-center justify-between">
+                    <Folder className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.6} />
+                    {github || preview ? (
+                      <div className="flex items-center gap-4 text-[var(--muted)]">
+                        {github ? (
+                          <a
+                            href={github}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${project.title} GitHub`}
+                            className="transition hover:text-[var(--accent)]"
+                          >
+                            <FaGithub className="h-5 w-5" />
+                          </a>
+                        ) : null}
+                        {preview ? (
+                          <a
+                            href={preview}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${project.title} preview`}
+                            className="transition hover:text-[var(--accent)]"
+                          >
+                            <ExternalLink className="h-5 w-5" strokeWidth={1.8} />
+                          </a>
+                        ) : null}
+                      </div>
+                    ) : status ? (
+                      <span className="tech-pill text-[11px]">{status}</span>
+                    ) : null}
                   </div>
-                </div>
-                <h4 className="text-xl font-semibold text-[var(--foreground)]">{project.title}</h4>
-                <p className="mt-3 min-h-[88px] leading-7 text-[var(--muted)]">
-                  {project.description}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tech.map((item) => (
-                    <span key={item} className="tech-pill text-[11px]">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h4 className="text-xl font-semibold text-[var(--foreground)]">{project.title}</h4>
+                    {status && (github || preview) ? (
+                      <span className="tech-pill text-[11px]">{status}</span>
+                    ) : null}
+                  </div>
+                  <p className="mt-3 min-h-[88px] leading-7 text-[var(--muted)]">
+                    {project.description}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.tech.map((item) => (
+                      <span key={item} className="tech-pill text-[11px]">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
